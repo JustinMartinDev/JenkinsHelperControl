@@ -5,13 +5,9 @@ import 'mdbreact/dist/css/mdb.css';
 import 'react-sliding-pane/dist/react-sliding-pane.css';
 
 import React, { Component } from 'react';
-import { render } from 'react-dom';
-import Modal from 'react-modal';
 import SlidingPane from 'react-sliding-pane';
-import BuildView from './Components/BuildView.js';
+import BuildView from './Components/buildView/BuildView.js';
 import {Button} from 'mdbreact';
-
-import constant from './constant.js';
 
 class App extends Component {
     constructor(props) {
@@ -20,10 +16,6 @@ class App extends Component {
             isPaneOpen: false,
             isPaneOpenLeft: false
         };
-    }
-
-    componentDidMount() {
-        Modal.setAppElement(this.el);
     }
 
     render() {

@@ -11,9 +11,9 @@ let bgColors = { "default": "#81b71a",
 };
 
 let logoType = {
-    "hudson.matrix.MatrixProject" : "./img/matrixproject.png",
-    "hudson.matrix.FreeStyleProject" : "./img/freestyleproject.png",
-    "com.tikal.jenkins.plugins.multijob.MultiJobProject" : "./img/multiproject.png",
+    "Matrix" : "./img/matrixproject.png",
+    "FreeStyle" : "./img/freestyleproject.png",
+    "Multi" : "./img/multiproject.png",
 }
 /*var jenkinsapi = require('jenkins-api');
 var jenkins = jenkinsapi.init("http://lmecxd0254:8080");*/

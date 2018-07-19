@@ -3,13 +3,21 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "classnames": "latest",
     "jenkins-api": "^0.3.1",
     "mdbreact": "^4.6.0",
+    "prop-types": "latest",
     "react": "^16.4.1",
+    "react-autocomplete": "^1.8.1",
+    "react-bootstrap-table": "^4.3.1",
+    "react-bootstrap-table-next": "^0.1.15",
     "react-dom": "^16.4.1",
+    "react-modal": "latest",
     "react-scripts": "1.1.4",
     "react-sliding-pane": "^2.0.2",
-    "react-spinners": "^0.3.2"
+    "react-spinners": "^0.3.2",
+    "react-transition-group": "^2.4.0",
+    "reactstrap": "^6.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
