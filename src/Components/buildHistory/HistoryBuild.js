@@ -44,8 +44,8 @@ class HistoryBuild extends Component {
         const { error, isLoaded, builds} = this.state;
         console.log(builds);
         function getUrl(build) {
-            if (build.builName.includes("»")) {
-                return (constant.serverUrl + "/" + build.builName.split(" ")[0] + "/" + build.jobName + "/" + build.number);
+            if (build.buildName.includes("»")) {
+                return (constant.serverUrl + "/" + build.buildName.split(" ")[0] + "/" + build.jobName + "/" + build.number);
             }
             else {
                 return (constant.serverUrl + "/" + build.jobName + "/" + build.number);
