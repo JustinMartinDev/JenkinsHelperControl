@@ -7,6 +7,7 @@ import 'react-sliding-pane/dist/react-sliding-pane.css';
 import React, { Component } from 'react';
 import SlidingPane from 'react-sliding-pane';
 import BuildView from './Components/buildView/BuildView.js';
+import HistoryBuild from './Components/buildHistory/HistoryBuild.js';
 import {Button} from 'mdbreact';
 
 class App extends Component {
@@ -25,7 +26,7 @@ class App extends Component {
                     <img src="./img/superhero.png" className="App-logo" alt="logo" />
                     <h1 className="App-title">Jenkins Helper Control</h1>
                 </header>
-                <Button color="secondary" onClick={() => this.setState({ isPaneOpen: true })}>Build historics</Button>
+                <Button color="secondary" onClick={() => this.setState({ isPaneOpen: true })}>Build history</Button>
                 <div className="row">
                     <BuildView/>
                 </div>
@@ -33,11 +34,12 @@ class App extends Component {
                     className='some-custom-class'
                     overlayClassName='some-custom-overlay-class'
                     isOpen={ this.state.isPaneOpen }
-                    title='Build historics'
+                    title='Build history'
                     onRequestClose={ () => {
                         // triggered on "<" on left top click or on outside click
                         this.setState({ isPaneOpen: false });
                     } }>
+                    <HistoryBuild/>
                 </SlidingPane>
             </div>
         );
