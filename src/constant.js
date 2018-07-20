@@ -10,11 +10,11 @@ let bgColors = { "default": "#81b71a",
     "yellow": "#F6BB42",
 };
 
-let logoType = {
-    "Matrix" : "./img/matrixproject.png",
-    "FreeStyle" : "./img/freestyleproject.png",
-    "Multi" : "./img/multiproject.png",
-}
+let logoType = new  Map([
+    ["Matrix","./img/matrixproject.png"],
+    ["FreeStyle", "./img/freestyleproject.png"],
+    ["Multi","./img/multiproject.png"],
+]);
 /*var jenkinsapi = require('jenkins-api');
 var jenkins = jenkinsapi.init("http://lmecxd0254:8080");*/
 let constant = {serverUrl, bgColors, logoType};

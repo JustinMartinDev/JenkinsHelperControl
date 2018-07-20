@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import BadgeIcon from './BadgeIcon';
+import BadgeIcon from '../utils/BadgeIcon';
 import {HashLoader} from 'react-spinners';
 import constant from '../../constant';
 
@@ -18,9 +18,9 @@ class StateLogo extends Component {
             if(tab==="blue") tab="green";
             return <HashLoader color={constant.bgColors[tab]} loading={this.state.loading}/>;
         }
-        else if(this.color === "blue")
+        else if(this.color === "blue" || this.color==="SUCCESS")
             return <BadgeIcon color='green' icon='thumbs-up'/>;
-        else if(this.color === "red")
+        else if(this.color === "red" || this.color==="FAILURE")
             return <BadgeIcon color='red' icon='thumbs-down'/>;
         else
             return <BadgeIcon color='grey' icon='minus'/>;

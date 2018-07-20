@@ -4,6 +4,15 @@ import {PacmanLoader} from 'react-spinners';
 import constant from '../../constant.js';
 import RowBuildView from './RowBuildView.js'
 
+function sortBuild(b, a){
+    if (b._class.toLowerCase().includes("Multi".toLowerCase()))
+        return -1;
+    if (a._class.toLowerCase().includes("Multi".toLowerCase()))
+        return 1;
+    // a doit être égal à b
+    return 0;
+}
+
 class BuildView extends Component {
     constructor(props) {
         super(props);
@@ -19,7 +28,10 @@ class BuildView extends Component {
             .then(res => res.json())
             .then(
                 (result) => {
-                  this.setState({
+                    var d = result.jobs.sort(sortBuild);
+                    console.log(result.jobs);
+                    console.log(d);
+                    this.setState({
                         isLoaded: true,
                         items: result.jobs
                     })

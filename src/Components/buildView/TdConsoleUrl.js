@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Card, CardBody} from 'mdbreact';
 import {PacmanLoader} from 'react-spinners';
 import constant from '../../constant.js';
-import BadgeIcon from './BadgeIcon.js';
+import BadgeIcon from '../utils/BadgeIcon.js';
 
 class TdConsoleUrl extends Component {
     constructor(props) {

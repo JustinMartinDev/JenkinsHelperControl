@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import {Container, Row, Col, Table, Button, Card, CardBody} from 'mdbreact';
 import {PacmanLoader} from 'react-spinners';
+import BadgeIcon from '../utils/BadgeIcon';
 import constant from '../../constant';
+import StateLogo from "../buildView/StateLogo";
 
 
 class HistoryBuild extends Component {
@@ -45,10 +47,10 @@ class HistoryBuild extends Component {
         console.log(builds);
         function getUrl(build) {
             if (build.buildName.includes("»")) {
-                return (constant.serverUrl + "/" + build.buildName.split(" ")[0] + "/" + build.jobName + "/" + build.number);
+                return (constant.serverUrl + "/job/" + build.buildName.split(" ")[0] + "/" + build.jobName + "/" + build.number+"/");
             }
             else {
-                return (constant.serverUrl + "/" + build.jobName + "/" + build.number);
+                return (constant.serverUrl + "/job/" + build.jobName + "/" + build.number+"/");
             }
         }
 
@@ -75,31 +77,26 @@ class HistoryBuild extends Component {
                         <Col md="12">
                             <Card>
                                 <CardBody>
-                                    <h2 className="h2-responsive pb-4">Build View :</h2>
+                                    <h2 className="h2-responsive pb-4">History View :</h2>
                                     <div style={{'display': 'block', 'overflowY': 'auto'}}>
                                         <Table responsive>
                                             <thead className="mdb-color lighten-4">
                                             <tr>
-                                                <th className="th-sm"> </th>
-                                                <th className="th-lg">Type</th>
                                                 <th className="th-lg">Name Job</th>
                                                 <th className="th-lg">State</th>
-                                                <th className="th-lg">Url job</th>
+                                                <th className="th-lg">Time Start</th>
+                                                <th className="th-lg">Duration</th>
                                                 <th className="th-lg">Console</th>
                                             </tr>
                                             </thead>
                                             <tbody>
                                             {builds.map(build => (
-                                                <tr className={"bg-" + build.result}  >
-                                                    <td>build.number</td>
+                                                <tr className={"bg-" + build.result}>
                                                     <td>{build.buildName}</td>
-                                                    <td>{new Date(build.startTime).toDateString()}/></td>
-                                                    <td>{new Date(build.duration).toDateString()}</td>
-                                                    <td>
-                                                        <Button color="info" onClick={this.clickButton.bind(this, getUrl(build))} rounded>
-                                                            Open
-                                                        </Button>
-                                                    </td>
+                                                    <td><StateLogo color={build.result}/></td>
+                                                    <td>{new Date(build.startTime).toDateString()}</td>
+                                                    <td>{new Date(build.duration).getSeconds().toString().toHHMMSS()}</td>
+                                                    <td onClick={this.clickButton.bind(this, getUrl(build)+"console")}><BadgeIcon color='black' icon='code'/></td>
                                                 </tr>
                                             ))}
                                             </tbody>
@@ -113,6 +110,18 @@ class HistoryBuild extends Component {
             )
         }
     }
+}
+
+String.prototype.toHHMMSS = function () {
+    var sec_num = parseInt(this, 10); // don't forget the second param
+    var hours   = Math.floor(sec_num / 3600);
+    var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
+    var seconds = sec_num - (hours * 3600) - (minutes * 60);
+
+    if (hours   < 10) {hours   = "0"+hours;}
+    if (minutes < 10) {minutes = "0"+minutes;}
+    if (seconds < 10) {seconds = "0"+seconds;}
+    return hours+':'+minutes+':'+seconds;
 }
 
 export default HistoryBuild
