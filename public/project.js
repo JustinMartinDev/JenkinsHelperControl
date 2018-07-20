@@ -13,7 +13,7 @@ $(window).on("load", function () {
         }
         else if(action === "hide"){
             $('.table').find("[toggler-id='" + idToChange + "']").removeClass("show");
-            $(this).parent().removeClass("left-border top-border right-border")
+            $(this).parent().removeClass("left-border top-border right-border");
             $(this).attr("toggle-action", "show");
         }
         else{
